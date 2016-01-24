@@ -1,0 +1,34 @@
+{
+	'teams': [
+		Team(u'Szonja', u'Rokkanttelep FC', '3245242'),
+		Team(u'Tímea', u'Botlábúak FC', '1412429'),
+		Team(u'Barney', u'Vasbeton ESE', '2990377'),
+		Team(u'Emőke', u'Zöld Elefántok', '943992'),
+		Team(u'Beatrix', u'Esetlen FC', '3194104'),
+		Team(u'Liliána', u'Kriptaszökevények SE', '793712'),
+		Team(u'Bia', u'Biabolic Team', '1283484'),
+		Team(u'Joy', u'Gyökerek', '2923718'),
+		Team(u'Vivian', u'Zizi', '1598069'),
+		Team(u'Gábor', u'Raszták', '1330864'),
+		Team(u'Norbert', u'Norbik FC', '3171024'),
+		Team(u'Baldó', u'Falcon FC', '3250946'),
+		Team(u'Etele', u'Endrődi Testedzők Köre', '3149921'),
+		Team(u'Anthony', u'Dementor FC', '1361638')
+	],
+	'rounds': {
+		'2016-01-24': [
+			Match(u'Beatrix', 1, 0),
+			Match(u'Liliána', 2, 3),
+			Match(u'Tímea', 0, 2),
+			Match(u'Norbert', 3, 0),
+			Match(u'Szonja', 4, 0),
+			Match(u'Barney', 3, 0),
+			Match(u'Emőke', 2, 2),
+			Match(u'Joy', 2, 0),
+			Match(u'Gábor', 1, 1),
+			Match(u'Bia', 4, 1),
+			Match(u'Vivian', 4, 0),
+			Match(u'Baldó', 0, 3)
+		]
+	}
+}
