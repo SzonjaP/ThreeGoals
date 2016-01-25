@@ -28,7 +28,9 @@
 			Match(u'Gábor', 1, 1),
 			Match(u'Bia', 4, 1),
 			Match(u'Vivian', 4, 0),
-			Match(u'Baldó', 0, 3)
+			Match(u'Baldó', 0, 3),
+			Match(u'Anthony', 3, 2),
+			Match(u'Etele', 4, 2)
 		]
 	}
 }
