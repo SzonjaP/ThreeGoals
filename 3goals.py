@@ -24,6 +24,7 @@ class Championship:
 
 		self.team_lookup = { team.player_name: team for team in teams }
 		self.result_lookup = { team.player_name: Result(team.player_name) for team in teams }
+		self._calc_results();
 
 	@classmethod
 	def from_file(cls, file_name):
@@ -35,7 +36,7 @@ class Championship:
 	def load_default(cls):
 		return Championship.from_file("Championship.db");
 
-	def calc_results(self):
+	def _calc_results(self):
 		for day, matches in self.rounds.iteritems():
 			for match in matches:
 				res = self.result_lookup[match.player_name]
@@ -49,48 +50,52 @@ class Championship:
 				else:
 					res.draws += 1
 
-	def get_sorted_results(self):
+	def get_sorted_results(self, sorter = _result_sorter):
 		results = sorted(self.result_lookup.values(), key=lambda x: self.team_lookup[x.player_name].team_name, reverse=True);
-		results = sorted(results, key=_result_sorter)
+		results = sorted(results, key=sorter)
 		return results
 
 
 
-padchar = '.'
+class Tabella:
+	def __init__(self, championship, padchar = '.', forBBCode = True):
+		self.padchar = padchar
+		self.forBBCode = forBBCode
+		self.championship = championship
 
-def _num_col(num):
-	return str(num).rjust(3, padchar).ljust(4, padchar)
+	def _num_col(self, num):
+		return str(num).rjust(3, self.padchar).ljust(4, self.padchar)
 
-def _get_row(idx, team, result, namecollen, bbcode=False):
-	name = team.team_name.ljust(namecollen, padchar)
-	if bbcode:
-		name = '[charid=%s name=%s]' % (team.character_id, name)
+	def _get_row(self, idx, team, result, namecollen, bbcode=False):
+		name = team.team_name.ljust(namecollen, self.padchar)
+		if bbcode:
+			name = '[charid=%s name=%s]' % (team.character_id, name)
 
-	pts = _num_col(result.wins*3 + result.draws)
-	wins = _num_col(result.wins)
-	draws = _num_col(result.draws)
-	losses = _num_col(result.losses)
+		pts = self._num_col(result.wins*3 + result.draws)
+		wins = self._num_col(result.wins)
+		draws = self._num_col(result.draws)
+		losses = self._num_col(result.losses)
 
-	gd = _num_col(result.scored - result.conceded)
-	sc = _num_col(result.scored)
-	cn = _num_col(result.conceded)
+		gd = self._num_col(result.scored - result.conceded)
+		sc = self._num_col(result.scored)
+		cn = self._num_col(result.conceded)
 
-	return (str(idx+1).rjust(2, padchar), name, pts, wins, draws, losses, gd, sc, cn)
+		return (str(idx+1).rjust(2, self.padchar), name, pts, wins, draws, losses, gd, sc, cn)
 
-def print_table(championship):
-	results = championship.get_sorted_results()
+	def printIt(self, sorter = _result_sorter):
+		results = self.championship.get_sorted_results(sorter)
 
-	#[charid=nnn name=sss]
-	namecollen = max([len(team.team_name) for team in ch.teams]) + 2
+		#[charid=nnn name=sss]
+		namecollen = max([len(team.team_name) for team in self.championship.teams]) + 2
 
 
-	print ".#|%s||%s||%s|%s|%s||%s||%s|%s" % ("Csapat".ljust(namecollen, padchar), _num_col("Pts"), _num_col("W"), _num_col("D"), _num_col("L"), _num_col("GD"), _num_col("Sc"), _num_col("Cn"))
-	print "--+%s++----++----+----+----++----++----+----" % "-".ljust(namecollen, "-")
-	for idx, result in enumerate(reversed(results)):
-		print ("%s|%s||%s||%s|%s|%s||%s||%s|%s" % _get_row(idx, ch.team_lookup[result.player_name], result, namecollen, True))
+		print ".#|%s||%s||%s|%s|%s||%s||%s|%s" % ("Csapat".ljust(namecollen, self.padchar), self._num_col("Pts"), self._num_col("W"), self._num_col("D"), self._num_col("L"), self._num_col("GD"), self._num_col("Sc"), self._num_col("Cn"))
+		print "--+%s++----++----+----+----++----++----+----" % "-".ljust(namecollen, "-")
+		for idx, result in enumerate(reversed(results)):
+			print ("%s|%s||%s||%s|%s|%s||%s||%s|%s" % self._get_row(idx, ch.team_lookup[result.player_name], result, namecollen, True))
 
 
 if __name__ == '__main__':
 	ch = Championship.load_default()
-	ch.calc_results()
-	print_table(ch)
+	table = Tabella(ch)
+	table.printIt()
