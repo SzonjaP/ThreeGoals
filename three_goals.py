@@ -21,9 +21,7 @@ class Championship:
 	def __init__(self, teams, rounds):
 		self.teams = teams
 		self.rounds = rounds
-
-		self.team_lookup = { team.player_name: team for team in teams }
-		self._calc_results();
+		self._reinit();
 
 	@classmethod
 	def from_file(cls, file_name):
@@ -31,7 +29,9 @@ class Championship:
 			s = eval(f.read().decode('utf-8'))
 			return cls(s['teams'], s['rounds'])
 
-	def _calc_results(self):
+	def _reinit(self):
+		self.team_lookup = { team.player_name: team for team in self.teams }
+
 		res = {}
 		player_matches = { team.player_name: [] for team in self.teams }
 
@@ -71,8 +71,14 @@ class Championship:
 				raise Exception("Player %s already has a match registered for the current round" % player_name)
 
 		self.last_round.append(Match(player_name, int(scored), int(conceded)))
-		self._calc_results()
+		self._reinit()
 
+	def add_round(self, round_name):
+		self.rounds[round_name] = []
+
+	def add_team(self, player_name, team_name, character_id):
+		self.teams.append(Team(player_name, team_name, character_id))
+		self._reinit()
 
 	@property
 	def last_round(self):
