@@ -3,6 +3,7 @@
 import operator
 from collections import namedtuple
 
+
 Team = namedtuple('Team', ['player_name', 'team_name', 'character_id'])
 Match = namedtuple('Match', ['player_name', 'scored', 'conceded'])
 Result = namedtuple('Result', ['player_name', 'wins', 'losses', 'draws', 'scored', 'conceded'])
@@ -95,20 +96,30 @@ class Tabella:
 
 		return (str(idx+1).rjust(2, self.padchar), name, pts, wins, draws, losses, gd, sc, cn)
 
-	def printIt(self, sorter = _result_sorter):
+	def get_lines(self, sorter = _result_sorter):
 		results = self.championship.get_sorted_results(sorter)
-
-		#[charid=nnn name=sss]
 		namecollen = max([len(team.team_name) for team in self.championship.teams]) + 2
 
-
-		print ".#|%s||%s||%s|%s|%s||%s||%s|%s" % ("Csapat".ljust(namecollen, self.padchar), self._num_col("Pts"), self._num_col("W"), self._num_col("D"), self._num_col("L"), self._num_col("GD"), self._num_col("Sc"), self._num_col("Cn"))
-		print "--+%s++----++----+----+----++----++----+----" % "-".ljust(namecollen, "-")
+		lines = []
+		lines.append(
+			".#|%s||%s||%s|%s|%s||%s||%s|%s" % (
+				"Csapat".ljust(namecollen, self.padchar),
+				self._num_col("Pts"),
+				self._num_col("W"),
+				self._num_col("D"),
+				self._num_col("L"),
+				self._num_col("GD"),
+				self._num_col("Sc"),
+				self._num_col("Cn"))
+		)
+		lines.append("--+%s++----++----+----+----++----++----+----" % "-".ljust(namecollen, "-"))
 		for idx, result in enumerate(reversed(results)):
-			print ("%s|%s||%s||%s|%s|%s||%s||%s|%s" % self._get_row(idx, ch.team_lookup[result.player_name], result, namecollen, True))
+			lines.append("%s|%s||%s||%s|%s|%s||%s||%s|%s" % self._get_row(idx, ch.team_lookup[result.player_name], result, namecollen, True))
+
+		return lines
 
 
 if __name__ == '__main__':
 	ch = Championship.load_default()
 	table = Tabella(ch)
-	table.printIt()
+	print "\n".join(table.get_lines())
