@@ -23,17 +23,13 @@ class Championship:
 		self.rounds = rounds
 
 		self.team_lookup = { team.player_name: team for team in teams }
-		self.result_lookup = self._calc_results();
+		self._calc_results();
 
 	@classmethod
 	def from_file(cls, file_name):
 		with open(file_name, 'r') as f:
 			s = eval(f.read().decode('utf-8'))
 			return cls(s['teams'], s['rounds'])
-
-	@classmethod
-	def load_default(cls):
-		return Championship.from_file("Championship.db");
 
 	def _calc_results(self):
 		res = {}
@@ -62,7 +58,22 @@ class Championship:
 
 				res[player_name] = Result(player_name, wins, losses, draws, scored, conceded);
 
-		return res
+		self.result_lookup = res
+
+	def add_match(self, player_name, scored, conceded):
+		if not player_name in self.team_lookup:
+			raise Exception("No registered team for %s" % player_name)
+		for match in self.last_round:
+			if match.player_name == player_name:
+				raise Exception("Player %s already has a match registered for the current round" % player_name)
+
+		self.last_round.append(Match(player_name, int(scored), int(conceded)))
+		self._calc_results()
+
+
+	@property
+	def last_round(self):
+		return self.rounds[sorted(self.rounds)[-1]]
 
 	def get_sorted_results(self, sorter = _result_sorter):
 		results = sorted(self.result_lookup.values(), key=lambda x: self.team_lookup[x.player_name].team_name, reverse=True);
@@ -80,9 +91,9 @@ class Tabella:
 	def _num_col(self, num):
 		return str(num).rjust(3, self.padchar).ljust(4, self.padchar)
 
-	def _get_row(self, idx, team, result, namecollen, bbcode=False):
+	def _get_row(self, idx, team, result, namecollen):
 		name = team.team_name.ljust(namecollen, self.padchar)
-		if bbcode:
+		if self.forBBCode:
 			name = '[charid=%s name=%s]' % (team.character_id, name)
 
 		pts = self._num_col(result.wins*3 + result.draws)
@@ -114,12 +125,12 @@ class Tabella:
 		)
 		lines.append("--+%s++----++----+----+----++----++----+----" % "-".ljust(namecollen, "-"))
 		for idx, result in enumerate(reversed(results)):
-			lines.append("%s|%s||%s||%s|%s|%s||%s||%s|%s" % self._get_row(idx, ch.team_lookup[result.player_name], result, namecollen, True))
+			lines.append("%s|%s||%s||%s|%s|%s||%s||%s|%s" % self._get_row(idx, self.championship.team_lookup[result.player_name], result, namecollen))
 
 		return lines
 
 
 if __name__ == '__main__':
-	ch = Championship.load_default()
+	ch = Championship.from_file("Championship.db")
 	table = Tabella(ch)
 	print "\n".join(table.get_lines())
