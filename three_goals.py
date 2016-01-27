@@ -58,6 +58,9 @@ class Championship:
 
 				res[player_name] = Result(player_name, wins, losses, draws, scored, conceded);
 
+		for player_name in list(set([x.player_name for x in self.teams]) - set(res.keys())):
+			res[player_name] = Result(player_name, 0, 0, 0, 0, 0)
+
 		self.result_lookup = res
 
 	def add_match(self, player_name, scored, conceded):
