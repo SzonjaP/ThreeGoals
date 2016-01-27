@@ -2,11 +2,10 @@
 
 import operator
 from collections import namedtuple
-from recordtype import recordtype
 
 Team = namedtuple('Team', ['player_name', 'team_name', 'character_id'])
 Match = namedtuple('Match', ['player_name', 'scored', 'conceded'])
-Result = recordtype('Result', ['player_name', ('wins', 0), ('losses', 0), ('draws', 0), ('scored', 0), ('conceded', 0)])
+Result = namedtuple('Result', ['player_name', 'wins', 'losses', 'draws', 'scored', 'conceded'])
 
 def _result_sorter(x):
 	return (
@@ -23,8 +22,7 @@ class Championship:
 		self.rounds = rounds
 
 		self.team_lookup = { team.player_name: team for team in teams }
-		self.result_lookup = { team.player_name: Result(team.player_name) for team in teams }
-		self._calc_results();
+		self.result_lookup = self._calc_results();
 
 	@classmethod
 	def from_file(cls, file_name):
@@ -37,18 +35,33 @@ class Championship:
 		return Championship.from_file("Championship.db");
 
 	def _calc_results(self):
+		res = {}
+		player_matches = { team.player_name: [] for team in self.teams }
+
 		for day, matches in self.rounds.iteritems():
 			for match in matches:
-				res = self.result_lookup[match.player_name]
-				res.scored += match.scored
-				res.conceded += match.conceded
+				player_matches[match.player_name].append(match);
+
+		for player_name, matches in player_matches.iteritems():
+			scored = 0;
+			conceded = 0;
+			wins = 0;
+			losses = 0;
+			draws = 0;
+			for match in matches:
+				scored += match.scored
+				conceded += match.conceded
 
 				if match.scored > match.conceded:
-					res.wins += 1
+					wins += 1
 				elif match.scored < match.conceded:
-					res.losses += 1
+					losses += 1
 				else:
-					res.draws += 1
+					draws += 1
+
+				res[player_name] = Result(player_name, wins, losses, draws, scored, conceded);
+
+		return res
 
 	def get_sorted_results(self, sorter = _result_sorter):
 		results = sorted(self.result_lookup.values(), key=lambda x: self.team_lookup[x.player_name].team_name, reverse=True);
