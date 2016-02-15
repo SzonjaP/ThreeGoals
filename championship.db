@@ -63,6 +63,22 @@
 			Match(u'Anthony', 1, 2),
 			Match(u'Etele', 4, 3),
 			Match(u'Baldó', 1, 2),
+		],
+		'2016-02-14': [
+			Match(u'Tímea', 2,0),
+			Match(u'Liliána', 2,3),
+			Match(u'Baldó', 1,8),
+			Match(u'Szonja', 2,1),
+			Match(u'Bia', 1, 2),
+			Match(u'Vivian', 1, 1),
+			Match(u'Beatrix', 1, 3),
+			Match(u'Emőke', 1,0),
+			Match(u'Gábor', 2,2),
+			Match(u'Joy', 10,3),
+			Match(u'Norbert', 2,3),
+			Match(u'Barney', 3,6),
+			Match(u'Etele', 2,3),
+			Match(u'Anthony', 4,0)
 		]
 	}
 }
