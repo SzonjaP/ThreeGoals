@@ -79,6 +79,39 @@
 			Match(u'Barney', 3,6),
 			Match(u'Etele', 2,3),
 			Match(u'Anthony', 4,0)
+		],
+		'2016-02-21': [
+			Match(u'Tímea', 1, 2),
+			Match(u'Liliána', 2, 3),
+			Match(u'Baldó', 1, 1),
+			Match(u'Gábor', 1, 0),
+			Match(u'Joy', 1, 3),
+			Match(u'Emőke', 5, 1),
+			Match(u'Bia', 3, 0),
+			Match(u'Vivian', 2, 1),
+			Match(u'Beatrix', 6, 1),
+			Match(u'Barney', 4, 0),
+			Match(u'Norbert', 1, 2),
+			Match(u'Szonja', 4, 0),
+			Match(u'Etele', 0, 3),
+			Match(u'Anthony', 2, 1)
+		],
+		'2016-02-28': [
+			Match(u'Liliána', 0, 3),
+			Match(u'Barney', 3, 0),
+			Match(u'Baldó', 0, 0),
+			Match(u'Tímea', 2, 5),
+			Match(u'Beatrix', 2, 2),
+			Match(u'Anthony', 0, 3),
+			Match(u'Norbert', 1, 7),
+			Match(u'Vivian', 1, 1),
+			Match(u'Bia', 3, 0),
+			Match(u'Emőke', 3, 1),
+			Match(u'Szonja', 1, 0),
+			Match(u'Joy', 0, 0),
+			Match(u'Gábor', 3, 1),
+			Match(u'Etele', 4, 1)
 		]
 	}
 }
+
