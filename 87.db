@@ -1,0 +1,17 @@
+{
+	'teams': [
+		Team(u'Szonja', u'Rokkanttelep FC', '3245242'),
+		Team(u'Tímea', u'Botlábúak FC', '1412429'),
+		Team(u'Barney', u'Vasbeton ESE', '2990377'),
+		Team(u'Emőke', u'Zöld Elefántok', '943992'),
+		Team(u'Beatrix', u'Esetlen FC', '3194104'),
+		Team(u'Liliána', u'Kriptaszökevények SE', '793712'),
+		Team(u'Joy', u'Gyökerek', '2923718'),
+		Team(u'Gábor', u'Raszták', '1330864'),
+		Team(u'Norbert', u'Norbik FC', '3171024'),
+		Team(u'Baldó', u'Falcon FC', '3250946'),
+	],
+	'rounds': {
+	}
+}
+
