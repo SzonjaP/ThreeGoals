@@ -94,6 +94,7 @@
 			Match(u'Norbert', 1, 2),
 			Match(u'Szonja', 4, 0),
 			Match(u'Etele', 0, 3),
+			Match(u'Barney', 3, 3),
 			Match(u'Anthony', 2, 1)
 		],
 		'2016-02-28': [
@@ -111,6 +112,22 @@
 			Match(u'Joy', 0, 0),
 			Match(u'Gábor', 3, 1),
 			Match(u'Etele', 4, 1)
+		],
+		'2016-03-06': [
+			Match(u'Vivian', 4, 3),
+			Match(u'Bia', 2, 1),
+			Match(u'Tímea', 1, 2),
+			Match(u'Liliána', 1, 3),
+			Match(u'Baldó', 3, 3),
+			Match(u'Beatrix', 0, 2),
+			Match(u'Szonja', 4, 2),
+			Match(u'Anthony', 3, 3),
+			Match(u'Norbert', 1, 3),
+			Match(u'Emőke', 3, 2),
+			Match(u'Gábor', 4, 3),
+			Match(u'Joy', 1, 3),
+			Match(u'Etele', 0, 3),
+			Match(u'Barney', 3, 3),
 		]
 	}
 }

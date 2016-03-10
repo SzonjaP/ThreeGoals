@@ -5,11 +5,16 @@
 		Team(u'Barney', u'Vasbeton ESE', '2990377'),
 		Team(u'Emőke', u'Zöld Elefántok', '943992'),
 		Team(u'Beatrix', u'Esetlen FC', '3194104'),
-		Team(u'Liliána', u'Kriptaszökevények SE', '793712'),
+		Team(u'LiliánaSz', u'Kriptaszökevények SE', '793712'),
 		Team(u'Joy', u'Gyökerek', '2923718'),
 		Team(u'Gábor', u'Raszták', '1330864'),
 		Team(u'Norbert', u'Norbik FC', '3171024'),
 		Team(u'Baldó', u'Falcon FC', '3250946'),
+		Team(u'LiliánaK', u'Piszkos tizenegy FC', '3277342'),
+		Team(u'Bia', u'Biabolic Team', '1283484'),
+		Team(u'Carlos', u'Sittesek FC', '3144942'),
+		Team(u'Anthony', u'Dementor FC', '1361638'),
+		Team(u'Etele', u'Endrődi Testedzők Köre', '3149921')
 	],
 	'rounds': {
 	}
