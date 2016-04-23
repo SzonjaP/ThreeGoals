@@ -84,6 +84,44 @@
 			Match(u'Barney', 3, 0),
 			Match(u'Norbert', 4, 2),
 			Match(u'Etele', 0, 0),
+		],
+		'2016-04-10': [
+			Match(u'Beatrix', 0, 0),
+			Match(u'LiliánaSz', 1, 3),
+			Match(u'Tímea', 4, 0),
+			Match(u'Baldó', 2, 2),
+			Match(u'Carlos', 0, 1),
+			Match(u'LiliánaK', 4, 0),
+			Match(u'Szonja', 2, 1),
+			Match(u'Bia', 3, 2),
+			Match(u'Emőke', 4, 1),
+			Match(u'Gábor', 1, 3),
+			Match(u'Joy', 0, 1),
+			Match(u'Anthony', 3, 4),
+			Match(u'Etele', 1, 0),
+			Match(u'Barney', 1, 0),
+			Match(u'Norbert', 3, 0),
+		],
+		'2016-04-17': [
+			Match(u'LiliánaSz', 1, 3),
+			Match(u'Tímea', 3, 1),
+			Match(u'LiliánaK', 3, 2),
+			Match(u'Beatrix', 3, 3),
+			Match(u'Bia', 4, 3),
+			Match(u'Szonja', 0, 3),
+			Match(u'Baldó', 3, 2),
+			Match(u'Carlos', 2, 1),
+			Match(u'Emőke', 4, 2),
+			Match(u'Gábor', 2, 3),
+			Match(u'Joy', 0, 0),
+			Match(u'Anthony', 3, 1),
+			Match(u'Barney', 4, 3),
+			Match(u'Norbert', 0, 1),
 		]
 	}
 }
+
+# Szonja, Bia, Beatrix, LiliánaK, Tímea, LiliánaSz,
+
+# 1		Tímea, Beatrix, Szonja, Barney
+# 2		LiliánaSz, Bia
