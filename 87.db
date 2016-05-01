@@ -117,11 +117,27 @@
 			Match(u'Anthony', 3, 1),
 			Match(u'Barney', 4, 3),
 			Match(u'Norbert', 0, 1),
+		],
+		'2016-04-24': [
+			Match(u'LiliánaSz', 3, 0),
+			Match(u'Tímea', 1, 2),
+			Match(u'Beatrix', 0, 1),
+			Match(u'LiliánaK', 1, 0),
+			Match(u'Szonja', 2, 3),
+			Match(u'Bia', 2, 3),
+			Match(u'Gábor', 2, 3),
+			Match(u'Joy', 4, 1),
+			Match(u'Emőke', 4, 0),
+			Match(u'Barney', 2, 0),
+			Match(u'Norbert', 4, 0),
+			Match(u'Anthony', 4, 5),
+			Match(u'Carlos', 4, 2),
+			Match(u'Baldó', 1, 1),
 		]
 	}
 }
 
-# Szonja, Bia, Beatrix, LiliánaK, Tímea, LiliánaSz,
+# Szonja, Bia, Beatrix, LiliánaK, Tímea, LiliánaSz Barney
 
 # 1		Tímea, Beatrix, Szonja, Barney
 # 2		LiliánaSz, Bia
