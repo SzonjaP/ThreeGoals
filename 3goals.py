@@ -11,7 +11,7 @@ Result = recordtype('Result', ['player_name', ('wins', 0), ('losses', 0), ('draw
 teams = None
 rounds = None
 
-with open("wcqualif.db", 'r') as f:
+with open("87.db", 'r') as f:
 	s = eval(f.read().decode('utf-8'))
 	teams = s['teams'];
 	rounds = s['rounds']
@@ -23,6 +23,7 @@ for day, matches in rounds.iteritems():
 	for match in matches:
 
 		if match.player_name not in result_lookup:
+			print "WARNING name not found %s" % match.player_name
 			continue
 
 		res = result_lookup[match.player_name]
