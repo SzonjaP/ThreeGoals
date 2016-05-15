@@ -10,17 +10,34 @@
 		Team(u'Joy', u'Gyökerek', '2923718'),
 		Team(u'Vivian', u'Zizi', '1598069'),
 		Team(u'Gábor', u'Raszták', '1330864'),
-		#Team(u'Norbert', u'Norbik FC', '3171024'),
+		Team(u'Norbert', u'Norbik FC', '3171024'),
 		#Team(u'Baldó', u'Falcon FC', '3250946'),
 		Team(u'LiliánaK', u'Piszkos Tizenegy FC', '3277342'),
 		#Team(u'Carlos', u'Sittesek FC', '3144942'),
-		#Team(u'Anthony', u'Dementor FC', '1361638'),
+		Team(u'Anthony', u'Dementor FC', '1361638'),
 		#Team(u'Etele', u'Endrődi Testedzők Köre', '3149921')
 		Team(u'Brúnó', u'Látható Fejlődés', '3035046'),
-		Team(u'Rebeka von Freyhold', u'BekkaPOD', '2385358'),
+		Team(u'Rebeka', u'BekkaPOD', '2385358'),
 	],
 
 	'rounds': {
+		'2016-05-08': [
+			Match(u'Tímea', 0, 2),
+			Match(u'LiliánaK', 0, 1),
+			Match(u'Brúnó', 1, 2),
+			Match(u'LiliánaSz', 6, 3),
+			Match(u'Anthony', 0, 1),
+			Match(u'Bia', 4, 3),
+			Match(u'Vivian', 0, 3),
+			Match(u'Rebeka', 4, 2),
+			Match(u'Szonja', 9, 3),
+			Match(u'Gábor', 0, 3),
+			Match(u'Joy', 5, 1),
+			Match(u'Emőke', 2, 2),
+			Match(u'Beatrix', 3, 2),
+			Match(u'Barney', 1, 3),
+			Match(u'Norbert', 1, 0),
+		]
 	}
 
 }
