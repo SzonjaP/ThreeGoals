@@ -139,6 +139,23 @@
 			Match(u'Beatrix', 4,2	),
 			Match(u'Barney', 1,2),
 			Match(u'Norbert', 4,0),
-		]
+		],
+		'2016-06-26': [
+			Match(u'Brúnó', 2,1),
+			Match(u'LiliánaK', 4,1),
+			Match(u'Tímea', 1,0),
+			Match(u'Joy', 3,1),
+			Match(u'Szonja', 0,2),
+			Match(u'Gábor', 0,3),
+			Match(u'Emőke', 1,1),
+			Match(u'Beatrix', 4,0),
+			Match(u'Bia', 1,3),
+			Match(u'Rebeka', 2,2),
+			Match(u'Vivian', 1,0),
+			Match(u'LiliánaSz', 0,2),
+			Match(u'Barney', 8,0),
+			Match(u'Norbert', 2,3),
+			Match(u'Anthony', 3,1),
+		],
 	}
 }
