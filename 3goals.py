@@ -11,7 +11,7 @@ Result = recordtype('Result', ['player_name', ('wins', 0), ('losses', 0), ('draw
 teams = None
 rounds = None
 
-with open("88.db", 'r') as f:
+with open("89.db", 'r') as f:
 	s = eval(f.read().decode('utf-8'))
 	teams = s['teams'];
 	rounds = s['rounds']
